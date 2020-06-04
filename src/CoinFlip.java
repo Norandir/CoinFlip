@@ -241,7 +241,7 @@ public class CoinFlip
 					}
 					
 				}
-				
+				//record results of flips of both coins
 				results2.setText("Heads: " + flipResults2H + " Tails: "+ flipResults2T);
 			}
 			
