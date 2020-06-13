@@ -26,11 +26,16 @@ public class CoinFlip
 		JFrame f = new JFrame();
 		JButton flip = new JButton("Flip");
 		JButton twoFlip = new JButton("Flip two coins");
+		JButton roll = new JButton("Roll dice");
+		
 		JButton Q = new JButton("Normal");
 		JButton P = new JButton("Penny");
+		
 		JLabel coin = new JLabel();
 		JLabel coin1 = new JLabel();
 		JLabel coin2 = new JLabel();
+		
+		
 		JLabel results = new JLabel();
 		JLabel results2 = new JLabel();
 		f.setLayout(null);
@@ -78,6 +83,19 @@ public class CoinFlip
 		f.add(PennyT2);
 		
 		
+		ImageIcon Die1 = new ImageIcon("Images/Die1.jpg"); //need to add picture of die to folder
+		ImageIcon Die2 = new ImageIcon("Images/Die2.jpg");
+		ImageIcon Die3 = new ImageIcon("Images/Die3.jpg");
+		ImageIcon Die4 = new ImageIcon("Images/Die4.jpg");
+		ImageIcon Die5 = new ImageIcon("Images/Die5.jpg");
+		ImageIcon Die6 = new ImageIcon("Images/Die6.jpg");
+		JLabel Die = new JLabel();
+		f.add(Die);
+		f.add(roll);
+		Die.setBounds(100, 300, 200, 200);
+		roll.setBounds(130,10,120, 40);
+		
+		
 		//set placement in window
 		flip.setBounds(130,100,120, 40);
 		twoFlip.setBounds(130,200,120, 40);
@@ -108,6 +126,7 @@ public class CoinFlip
 		PennyT2.setBounds(100, 500, 200, 200);
 		PennyT2.setVisible(false);
 		
+		//TODO set up location of die
 		
 		//adding actions performed when first button is pressed
 		flip.addActionListener(new ActionListener() {
@@ -125,6 +144,8 @@ public class CoinFlip
 				tails2.setVisible(false);
 				PennyH2.setVisible(false);
 				PennyT2.setVisible(false);
+				
+				Die.setVisible(false);
 				
 				
 				
@@ -180,6 +201,8 @@ public class CoinFlip
 				PennyT.setVisible(false);
 				PennyH2.setVisible(false);
 				PennyT2.setVisible(false);
+				
+				Die.setVisible(false);
 				
 				//randomized both coins
 				Random rand1 = new Random();
@@ -268,6 +291,53 @@ public class CoinFlip
 			}
 			
 		});
+		
+		
+		roll.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				heads.setVisible(false);
+				heads2.setVisible(false);
+				tails.setVisible(false);
+				tails2.setVisible(false);
+				
+				PennyH.setVisible(false);
+				PennyT.setVisible(false);
+				PennyH2.setVisible(false);
+				PennyT2.setVisible(false);
+				
+				Die.setVisible(true);
+				
+				Random DR = new Random();
+				
+				int dieroll = DR.nextInt(6) + 1;
+				
+				switch (dieroll) {
+				case 1:
+					Die.setIcon(Die1);
+					break;
+				case 2:
+					Die.setIcon(Die2);
+					break;
+				case 3:
+					Die.setIcon(Die3);
+					break;
+				case 4:
+					Die.setIcon(Die4);
+					break;
+				case 5:
+					Die.setIcon(Die5);
+					break;
+				case 6:
+					Die.setIcon(Die6);
+					break;
+				}
+				
+			}
+			
+		});
+		
 	}
 	//run program
 	public static void main(String[] args) {
