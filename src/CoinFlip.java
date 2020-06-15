@@ -26,7 +26,8 @@ public class CoinFlip
 		JFrame f = new JFrame();
 		JButton flip = new JButton("Flip");
 		JButton twoFlip = new JButton("Flip two coins");
-		JButton roll = new JButton("Roll dice");
+		JButton roll = new JButton("Roll die");
+		JButton roll2 = new JButton("Roll two dice");
 		
 		JButton Q = new JButton("Normal");
 		JButton P = new JButton("Penny");
@@ -90,10 +91,15 @@ public class CoinFlip
 		ImageIcon Die5 = new ImageIcon("Images/Die5.jpg");
 		ImageIcon Die6 = new ImageIcon("Images/Die6.jpg");
 		JLabel Die = new JLabel();
+		JLabel SecondDie = new JLabel();
 		f.add(Die);
 		f.add(roll);
+		f.add(roll2);
+		f.add(SecondDie);
 		Die.setBounds(100, 300, 200, 200);
-		roll.setBounds(130,10,120, 40);
+		roll.setBounds(30,10,120, 40);
+		roll2.setBounds(200,10,120, 40);
+		SecondDie.setBounds(100, 500, 200, 200);
 		
 		
 		//set placement in window
@@ -146,6 +152,7 @@ public class CoinFlip
 				PennyT2.setVisible(false);
 				
 				Die.setVisible(false);
+				SecondDie.setVisible(false);
 				
 				
 				
@@ -203,6 +210,7 @@ public class CoinFlip
 				PennyT2.setVisible(false);
 				
 				Die.setVisible(false);
+				SecondDie.setVisible(false);
 				
 				//randomized both coins
 				Random rand1 = new Random();
@@ -308,6 +316,7 @@ public class CoinFlip
 				PennyT2.setVisible(false);
 				
 				Die.setVisible(true);
+				SecondDie.setVisible(false);
 				
 				Random DR = new Random();
 				
@@ -331,6 +340,74 @@ public class CoinFlip
 					break;
 				case 6:
 					Die.setIcon(Die6);
+					break;
+				}
+				
+			}
+			
+		});
+		
+		roll2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				heads.setVisible(false);
+				heads2.setVisible(false);
+				tails.setVisible(false);
+				tails2.setVisible(false);
+				
+				PennyH.setVisible(false);
+				PennyT.setVisible(false);
+				PennyH2.setVisible(false);
+				PennyT2.setVisible(false);
+				
+				Die.setVisible(true);
+				SecondDie.setVisible(true);
+				
+				Random DR = new Random();
+				
+				int dieroll = DR.nextInt(6) + 1;
+				int dieroll2 = DR.nextInt(6) + 1;
+				
+				switch (dieroll) {
+				case 1:
+					Die.setIcon(Die1);
+					break;
+				case 2:
+					Die.setIcon(Die2);
+					break;
+				case 3:
+					Die.setIcon(Die3);
+					break;
+				case 4:
+					Die.setIcon(Die4);
+					break;
+				case 5:
+					Die.setIcon(Die5);
+					break;
+				case 6:
+					Die.setIcon(Die6);
+					break;
+				}
+				
+				switch (dieroll2) {
+				case 1:
+					SecondDie.setIcon(Die1);
+					break;
+				case 2:
+					SecondDie.setIcon(Die2);
+					break;
+				case 3:
+					SecondDie.setIcon(Die3);
+					break;
+				case 4:
+					SecondDie.setIcon(Die4);
+					break;
+				case 5:
+					SecondDie.setIcon(Die5);
+					break;
+				case 6:
+					SecondDie.setIcon(Die6);
 					break;
 				}
 				
