@@ -141,15 +141,7 @@ public class CoinFlip
 			public void actionPerformed(ActionEvent e) {
 				Random rand = new Random();
 				//Make sure all Coins are reset on click
-				heads.setVisible(false);
-				tails.setVisible(false);
-				PennyH.setVisible(false);
-				PennyT.setVisible(false);
-				
-				heads2.setVisible(false);
-				tails2.setVisible(false);
-				PennyH2.setVisible(false);
-				PennyT2.setVisible(false);
+				reset(heads, heads2, tails, tails2, PennyH, PennyH2, PennyT, PennyT2);
 				
 				Die.setVisible(false);
 				SecondDie.setVisible(false);
@@ -199,15 +191,7 @@ public class CoinFlip
 			public void actionPerformed(ActionEvent e) {
 				
 			//all coins are reset 
-				heads.setVisible(false);
-				heads2.setVisible(false);
-				tails.setVisible(false);
-				tails2.setVisible(false);
-				
-				PennyH.setVisible(false);
-				PennyT.setVisible(false);
-				PennyH2.setVisible(false);
-				PennyT2.setVisible(false);
+				reset(heads, heads2, tails, tails2, PennyH, PennyH2, PennyT, PennyT2);
 				
 				Die.setVisible(false);
 				SecondDie.setVisible(false);
@@ -305,15 +289,7 @@ public class CoinFlip
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				heads.setVisible(false);
-				heads2.setVisible(false);
-				tails.setVisible(false);
-				tails2.setVisible(false);
-				
-				PennyH.setVisible(false);
-				PennyT.setVisible(false);
-				PennyH2.setVisible(false);
-				PennyT2.setVisible(false);
+				reset(heads, heads2, tails, tails2, PennyH, PennyH2, PennyT, PennyT2);
 				
 				Die.setVisible(true);
 				SecondDie.setVisible(false);
@@ -351,15 +327,7 @@ public class CoinFlip
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				heads.setVisible(false);
-				heads2.setVisible(false);
-				tails.setVisible(false);
-				tails2.setVisible(false);
-				
-				PennyH.setVisible(false);
-				PennyT.setVisible(false);
-				PennyH2.setVisible(false);
-				PennyT2.setVisible(false);
+				reset(heads, heads2, tails, tails2, PennyH, PennyH2, PennyT, PennyT2);
 				
 				Die.setVisible(true);
 				SecondDie.setVisible(true);
@@ -415,6 +383,18 @@ public class CoinFlip
 			
 		});
 		
+	}
+	
+	public void reset(JLabel heads, JLabel heads2, JLabel tails, JLabel tails2, JLabel PennyH, JLabel PennyH2, JLabel PennyT, JLabel PennyT2) {
+		heads.setVisible(false);
+		heads2.setVisible(false);
+		tails.setVisible(false);
+		tails2.setVisible(false);
+		
+		PennyH.setVisible(false);
+		PennyT.setVisible(false);
+		PennyH2.setVisible(false);
+		PennyT2.setVisible(false);
 	}
 	//run program
 	public static void main(String[] args) {
