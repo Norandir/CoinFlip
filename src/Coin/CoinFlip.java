@@ -1,3 +1,4 @@
+package Coin;
 import javax.swing.JFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,7 +21,8 @@ public class CoinFlip
 	public CoinFlip()
 	{
 		
-		
+		Die d = new Die();
+		Coins c = new Coins();
 		
 		//creating window, buttons and labels
 		JFrame f = new JFrame();
@@ -29,12 +31,6 @@ public class CoinFlip
 		JButton roll = new JButton("Roll die");
 		JButton roll2 = new JButton("Roll two dice");
 		
-		JButton Q = new JButton("Normal");
-		JButton P = new JButton("Penny");
-		
-		JLabel coin = new JLabel();
-		JLabel coin1 = new JLabel();
-		JLabel coin2 = new JLabel();
 		
 		
 		JLabel results = new JLabel();
@@ -48,89 +44,78 @@ public class CoinFlip
 		
 		//add objects to window
 		f.add(flip);
-		f.add(coin);
-		f.add(coin1);
-		f.add(coin2);
+		f.add(c.coin);
+		f.add(c.coin1);
+		f.add(c.coin2);
 		f.add(twoFlip);
 		f.add(results);
 		f.add(results2);
-		f.add(Q);
-		f.add(P);
+		f.add(c.Q);
+		f.add(c.P);
 		
 		//creating coin images
-		ImageIcon head = new ImageIcon("Images/Heads.png");
-		JLabel heads = new JLabel(head);
-		f.add(heads);
-		ImageIcon tail = new ImageIcon("Images/Tails.jpg");
-		JLabel tails = new JLabel(tail);
-		f.add(tails);
 		
-		JLabel heads2 = new JLabel(head);
-		f.add(heads2);
-		JLabel tails2 = new JLabel(tail);
-		f.add(tails2);
+		f.add(c.heads);
+		
+		f.add(c.tails);
 		
 		
-		ImageIcon PH = new ImageIcon("Images/PennyH.jpg");
-		JLabel PennyH = new JLabel(PH);
-		f.add(PennyH);
-		ImageIcon PT = new ImageIcon("Images/PennyT.jpg");
-		JLabel PennyT = new JLabel(PT);
-		f.add(PennyT);
+		f.add(c.heads2);
 		
-		JLabel PennyH2 = new JLabel(PH);
-		f.add(PennyH2);
-		JLabel PennyT2 = new JLabel(PT);
-		f.add(PennyT2);
+		f.add(c.tails2);
 		
 		
-		ImageIcon Die1 = new ImageIcon("Images/Die1.jpg"); //need to add picture of die to folder
-		ImageIcon Die2 = new ImageIcon("Images/Die2.jpg");
-		ImageIcon Die3 = new ImageIcon("Images/Die3.jpg");
-		ImageIcon Die4 = new ImageIcon("Images/Die4.jpg");
-		ImageIcon Die5 = new ImageIcon("Images/Die5.jpg");
-		ImageIcon Die6 = new ImageIcon("Images/Die6.jpg");
-		JLabel Die = new JLabel();
-		JLabel SecondDie = new JLabel();
-		f.add(Die);
+		
+		f.add(c.PennyH);
+		
+		f.add(c.PennyT);
+		
+		
+		f.add(c.PennyH2);
+		
+		f.add(c.PennyT2);
+		
+		
+		
+		f.add(d.Die);
 		f.add(roll);
 		f.add(roll2);
-		f.add(SecondDie);
-		Die.setBounds(100, 300, 200, 200);
+		f.add(d.SecondDie);
+		d.Die.setBounds(100, 300, 200, 200);
 		roll.setBounds(30,10,120, 40);
 		roll2.setBounds(200,10,120, 40);
-		SecondDie.setBounds(100, 500, 200, 200);
+		d.SecondDie.setBounds(100, 500, 200, 200);
 		
 		
 		//set placement in window
 		flip.setBounds(130,100,120, 40);
 		twoFlip.setBounds(130,200,120, 40);
-		Q.setBounds(270,200,80, 40);
-		P.setBounds(40,200,80, 40);
+		c.Q.setBounds(270,200,80, 40);
+		c.P.setBounds(40,200,80, 40);
 		
 		
 		results.setBounds(100, 30, 100, 100);
 		results2.setBounds(140, 240, 100, 100);
-		coin.setBounds(155, 100, 100, 100);
-		coin1.setBounds(140, 210, 100, 100);
-		coin2.setBounds(180, 210, 100, 100);
-		heads.setBounds(100, 300, 200, 200);
-		heads.setVisible(false);
-		tails.setBounds(100, 300, 200, 200);
-		tails.setVisible(false);
-		heads2.setBounds(100, 500, 200, 200);
-		heads2.setVisible(false);
-		tails2.setBounds(100, 500, 200, 200);
-		tails2.setVisible(false);
+		c.coin.setBounds(155, 100, 100, 100);
+		c.coin1.setBounds(140, 210, 100, 100);
+		c.coin2.setBounds(180, 210, 100, 100);
+		c.heads.setBounds(100, 300, 200, 200);
+		c.heads.setVisible(false);
+		c.tails.setBounds(100, 300, 200, 200);
+		c.tails.setVisible(false);
+		c.heads2.setBounds(100, 500, 200, 200);
+		c.heads2.setVisible(false);
+		c.tails2.setBounds(100, 500, 200, 200);
+		c.tails2.setVisible(false);
 		
-		PennyH.setBounds(100, 300, 200, 200);
-		PennyH.setVisible(false);
-		PennyT.setBounds(100, 300, 200, 200);
-		PennyT.setVisible(false);
-		PennyH2.setBounds(100, 500, 200, 200);
-		PennyH2.setVisible(false);
-		PennyT2.setBounds(100, 500, 200, 200);
-		PennyT2.setVisible(false);
+		c.PennyH.setBounds(100, 300, 200, 200);
+		c.PennyH.setVisible(false);
+		c.PennyT.setBounds(100, 300, 200, 200);
+		c.PennyT.setVisible(false);
+		c.PennyH2.setBounds(100, 500, 200, 200);
+		c.PennyH2.setVisible(false);
+		c.PennyT2.setBounds(100, 500, 200, 200);
+		c.PennyT2.setVisible(false);
 		
 		//TODO set up location of die
 		
@@ -141,10 +126,10 @@ public class CoinFlip
 			public void actionPerformed(ActionEvent e) {
 				Random rand = new Random();
 				//Make sure all Coins are reset on click
-				reset(heads, heads2, tails, tails2, PennyH, PennyH2, PennyT, PennyT2);
+				reset(c.heads, c.heads2, c.tails, c.tails2, c.PennyH, c.PennyH2, c.PennyT, c.PennyT2);
 				
-				Die.setVisible(false);
-				SecondDie.setVisible(false);
+				d.Die.setVisible(false);
+				d.SecondDie.setVisible(false);
 				
 				
 				
@@ -153,28 +138,28 @@ public class CoinFlip
 				coinresult = rand.nextInt(2);
 				//do if flip is heads
 				if(coinresult == 0) {
-					coin.setText("Heads");
+					c.coin.setText("Heads");
 					flipResultsH++;
 					//Which coin flips
 					if (CC == false) {
-						heads.setVisible(true);
+						c.heads.setVisible(true);
 					}
 					else {
-						PennyH.setVisible(true);
+						c.PennyH.setVisible(true);
 					}
 				
 				
 				}
 				//do if tails
 				else if (coinresult == 1) {
-					coin.setText("Tails");
+					c.coin.setText("Tails");
 					flipResultsT++;
 					
 					if (CC == false) {
-						tails.setVisible(true);
+						c.tails.setVisible(true);
 					}
 					else {
-						PennyT.setVisible(true);
+						c.PennyT.setVisible(true);
 					}
 					
 				}
@@ -191,10 +176,10 @@ public class CoinFlip
 			public void actionPerformed(ActionEvent e) {
 				
 			//all coins are reset 
-				reset(heads, heads2, tails, tails2, PennyH, PennyH2, PennyT, PennyT2);
+				reset(c.heads, c.heads2, c.tails, c.tails2, c.PennyH, c.PennyH2, c.PennyT, c.PennyT2);
 				
-				Die.setVisible(false);
-				SecondDie.setVisible(false);
+				d.Die.setVisible(false);
+				d.SecondDie.setVisible(false);
 				
 				//randomized both coins
 				Random rand1 = new Random();
@@ -208,51 +193,51 @@ public class CoinFlip
 				
 				
 				if(coinresult1 == 0) {
-					coin1.setText("Heads");
+					c.coin1.setText("Heads");
 					flipResults2H++;
 					
 					if (CC == false) {
-						heads.setVisible(true);
+						c.heads.setVisible(true);
 					}
 					else {
-						PennyH.setVisible(true);
+						c.PennyH.setVisible(true);
 					}
 					
 				}
 				else if (coinresult1 == 1) {
-					coin1.setText("Tails");
+					c.coin1.setText("Tails");
 					flipResults2T++;
 					if (CC == false) {
-						tails.setVisible(true);
+						c.tails.setVisible(true);
 					}
 					else {
-						PennyT.setVisible(true);
+						c.PennyT.setVisible(true);
 					}
 					
 				
 				}
 				
 				if(coinresult2 == 0) {
-					coin2.setText("Heads");
+					c.coin2.setText("Heads");
 					flipResults2H++;
 					if (CC == false) {
-						heads2.setVisible(true);
+						c.heads2.setVisible(true);
 					}
 					else {
-						PennyH2.setVisible(true);
+						c.PennyH2.setVisible(true);
 					}
 					
 					
 				}
 				else if (coinresult2 == 1) {
-					coin2.setText("Tails");
+					c.coin2.setText("Tails");
 					flipResults2T++;
 					
 					if (CC == false) {
-						tails2.setVisible(true);
+						c.tails2.setVisible(true);
 					}
 					else {
-						PennyT2.setVisible(true);
+						c.PennyT2.setVisible(true);
 					}
 					
 				}
@@ -263,7 +248,7 @@ public class CoinFlip
 		});
 		
 		//Use Quarter when pushed
-		Q.addActionListener(new ActionListener() {
+		c.Q.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -274,7 +259,7 @@ public class CoinFlip
 		});
 		
 		//Use penny when pushed
-		P.addActionListener(new ActionListener() {
+		c.P.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -289,10 +274,10 @@ public class CoinFlip
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				reset(heads, heads2, tails, tails2, PennyH, PennyH2, PennyT, PennyT2);
+				reset(c.heads, c.heads2, c.tails, c.tails2, c.PennyH, c.PennyH2, c.PennyT, c.PennyT2);
 				
-				Die.setVisible(true);
-				SecondDie.setVisible(false);
+				d.Die.setVisible(true);
+				d.SecondDie.setVisible(false);
 				
 				Random DR = new Random();
 				
@@ -300,22 +285,22 @@ public class CoinFlip
 				
 				switch (dieroll) {
 				case 1:
-					Die.setIcon(Die1);
+					d.Die.setIcon(d.Die1);
 					break;
 				case 2:
-					Die.setIcon(Die2);
+					d.Die.setIcon(d.Die2);
 					break;
 				case 3:
-					Die.setIcon(Die3);
+					d.Die.setIcon(d.Die3);
 					break;
 				case 4:
-					Die.setIcon(Die4);
+					d.Die.setIcon(d.Die4);
 					break;
 				case 5:
-					Die.setIcon(Die5);
+					d.Die.setIcon(d.Die5);
 					break;
 				case 6:
-					Die.setIcon(Die6);
+					d.Die.setIcon(d.Die6);
 					break;
 				}
 				
@@ -327,10 +312,10 @@ public class CoinFlip
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				reset(heads, heads2, tails, tails2, PennyH, PennyH2, PennyT, PennyT2);
+				reset(c.heads, c.heads2, c.tails, c.tails2, c.PennyH, c.PennyH2, c.PennyT, c.PennyT2);
 				
-				Die.setVisible(true);
-				SecondDie.setVisible(true);
+				d.Die.setVisible(true);
+				d.SecondDie.setVisible(true);
 				
 				Random DR = new Random();
 				
@@ -339,43 +324,43 @@ public class CoinFlip
 				
 				switch (dieroll) {
 				case 1:
-					Die.setIcon(Die1);
+					d.Die.setIcon(d.Die1);
 					break;
 				case 2:
-					Die.setIcon(Die2);
+					d.Die.setIcon(d.Die2);
 					break;
 				case 3:
-					Die.setIcon(Die3);
+					d.Die.setIcon(d.Die3);
 					break;
 				case 4:
-					Die.setIcon(Die4);
+					d.Die.setIcon(d.Die4);
 					break;
 				case 5:
-					Die.setIcon(Die5);
+					d.Die.setIcon(d.Die5);
 					break;
 				case 6:
-					Die.setIcon(Die6);
+					d.Die.setIcon(d.Die6);
 					break;
 				}
 				
 				switch (dieroll2) {
 				case 1:
-					SecondDie.setIcon(Die1);
+					d.SecondDie.setIcon(d.Die1);
 					break;
 				case 2:
-					SecondDie.setIcon(Die2);
+					d.SecondDie.setIcon(d.Die2);
 					break;
 				case 3:
-					SecondDie.setIcon(Die3);
+					d.SecondDie.setIcon(d.Die3);
 					break;
 				case 4:
-					SecondDie.setIcon(Die4);
+					d.SecondDie.setIcon(d.Die4);
 					break;
 				case 5:
-					SecondDie.setIcon(Die5);
+					d.SecondDie.setIcon(d.Die5);
 					break;
 				case 6:
-					SecondDie.setIcon(Die6);
+					d.SecondDie.setIcon(d.Die6);
 					break;
 				}
 				
