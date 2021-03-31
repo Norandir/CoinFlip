@@ -190,9 +190,9 @@ public class CoinFlip
 				coinresult2 = rand2.nextInt(2);
 				
 				
-				
-				
-				if(coinresult1 == 0) {
+				//dont remember when I coded this, it has been made easier to understand
+				switch(coinresult1) {
+				case 0:
 					c.coin1.setText("Heads");
 					flipResults2H++;
 					
@@ -202,9 +202,9 @@ public class CoinFlip
 					else {
 						c.PennyH.setVisible(true);
 					}
+					break;
 					
-				}
-				else if (coinresult1 == 1) {
+				case 1:
 					c.coin1.setText("Tails");
 					flipResults2T++;
 					if (CC == false) {
@@ -214,10 +214,11 @@ public class CoinFlip
 						c.PennyT.setVisible(true);
 					}
 					
-				
+					break;
 				}
 				
-				if(coinresult2 == 0) {
+				switch(coinresult2) {
+				case 0:
 					c.coin2.setText("Heads");
 					flipResults2H++;
 					if (CC == false) {
@@ -226,10 +227,9 @@ public class CoinFlip
 					else {
 						c.PennyH2.setVisible(true);
 					}
+					break;
 					
-					
-				}
-				else if (coinresult2 == 1) {
+				case 1:
 					c.coin2.setText("Tails");
 					flipResults2T++;
 					
@@ -239,8 +239,9 @@ public class CoinFlip
 					else {
 						c.PennyT2.setVisible(true);
 					}
-					
+					break;
 				}
+				
 				//record results of flips of both coins
 				results2.setText("Heads: " + flipResults2H + " Tails: "+ flipResults2T);
 			}
